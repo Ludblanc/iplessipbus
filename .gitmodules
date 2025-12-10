@@ -1,0 +1,11 @@
+[submodule "rtl/ip/verilog-ethernet"]
+	path = rtl/ip/verilog-ethernet
+	url = https://github.com/alexforencich/verilog-ethernet.git
+
+[submodule "rtl/ip/ipbus-firmware"]
+	path = rtl/ip/ipbus-firmware
+	url = https://github.com/ipbus/ipbus-firmware.git
+	
+[submodule "rtl/ip/ipbus-software"]
+	path = rtl/ip/ipbus-software
+	url = https://github.com/ipbus/ipbus-software.git
