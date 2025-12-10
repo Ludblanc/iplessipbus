@@ -1,0 +1,1 @@
+../rtl/ip/ipbus-software/uhal/tools/scripts/gen_ipbus_addr_decode
