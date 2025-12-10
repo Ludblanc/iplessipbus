@@ -10,7 +10,7 @@ git submodule update
 Or in one step:
 
 ```bash
-git clone --recurse-submodules
+git clone  git@github.com:Ludblanc/iplessipbus.git --recursive          
 ```
 
 Python and cocotb dependencies (except IPbus software) use Conda. See `environment.yml`.
