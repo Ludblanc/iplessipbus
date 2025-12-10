@@ -21,7 +21,7 @@ conda env create -f environment.yml
 IPbus software environment is provided via Apptainer (see the [`apptainer`](apptainer) directory).
 
 Useful datasheets and standards are in [`documentation/`](documentation).
-
+- RMII/MII converter [`rtl/hdl/ipbus/rmii/rtl`](rtl/hdl/ipbus/rmii/rtl)
 - Timing constraints for our RMII PHY: [`rtl/hdl/ipbus/rmii/constraint`](rtl/hdl/ipbus/rmii/constraint)  
 - And for RGMII : [`rtl/hdl/ipbus/rgmii/constraints`](rtl/hdl/ipbus/rgmii/constraints)
 ## Simulation
