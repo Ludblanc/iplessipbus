@@ -1,0 +1,49 @@
+BootStrap: yum
+OSVersion: 8
+MirrorURL: https://download.rockylinux.org/pub/rocky/%{OSVERSION}/BaseOS/$basearch/os/
+Include: yum
+
+# These files need to be copied to use the build systems entitlement
+# with apptainer. The Redhat license terms require that rhel containers
+# are build on an entitled system. 
+# Compare https://access.redhat.com/solutions/5870841
+
+#%files
+#	/etc/rhsm /run/secrets/
+#	/etc/pki/entitlement /run/secrets/etc-pki-entitlement
+#	/etc/yum.repos.d/redhat.repo /run/secrets/redhat.repo
+
+%files
+	files/8/os-release /os-release
+	files/8/redhat-release /redhat-release
+%post
+	dnf repolist enabled
+	dnf install -y apr-util compat-openssl10 evince firefox gdb gedit ksh libXScrnSaver libXft libXi libXp libXpm libXrender libXt libdb libnsl libnsl2 libpng12 libpng15 mesa-libGLU numactl-libs openssl-devel openssl-libs openssl-libs perl pulseaudio-libs-glib2 redhat-lsb tcsh xcb-util xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-server-Xvfb yum-utils zlib
+	dnf install -y  ksh mesa-libGLU compat-openssl10 apr-util libpng12 libXp ncurses-compat-libs libnsl libXScrnSaver-devel openssl-devel boost-locale libgfortran glibc-devel redhat-lsb motif xcb-util-renderutil xcb-util-image xcb-util-wm xcb-util-keysyms --exclude=postfix --exclude=procmail --exclude=sendmail  --nobest --skip-broken
+	dnf install -y tcl tcsh --exclude=postfix --exclude=procmail --exclude=sendmail --nobest --skip-broken
+	echo "set prompt = 'EDARHEL8[%n@%m %c]$ '" > /etc/profile.d/edaprompt.csh
+	echo "source /edadk/startup/cshrc" > /etc/profile.d/eda.csh
+	echo "Sure Cadence, this is a totally really legit RHEL8"
+	cat /os-release > /etc/os-release
+	cat /redhat-release > /etc/redhat-release
+    curl https://ipbus.web.cern.ch/doc/user/html/_downloads/ipbus-sw.centos8.repo -o /etc/yum.repos.d/ipbus-sw.repo
+    dnf config-manager --enable powertools
+	dnf install -y epel-release
+    dnf groupinstall -y uhal controlhub
+	dnf install -y python3.11
+	dnf install -y python3-numpy python3.11-numpy python3-matplotlib python3-matplotlib-gtk3 python3-matplotlib-qt5 python3-pandas cactuscore-uhal-python311 cactuscore-uhal-python311-gui  python3.11-pytest  python3-pytest llvm-toolset python3.11-pip python3.12-pip
+	python3.11 -m pip install numba cocotb cocotbext-axi cocotbext-eth  cocotbext-pcie 
+
+
+%environment
+	export PATH=/edadk/bin:$PATH
+	export LC_CTYPE=en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	export LANG=C
+    export LD_LIBRARY_PATH=/opt/cactus/lib:$LD_LIBRARY_PATH
+
+%runscript 
+	tcsh
+%labels
+	Author Christoph Mueller
+    Adapted by Ludovic Blanc
