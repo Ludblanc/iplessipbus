@@ -107,13 +107,7 @@ def main():
         hw.dispatch()
 
         # Convert readback 32-bit words back to bytes
-        read_bytes = b"".join(
-            (w & 0xFF,
-             (w >> 8) & 0xFF,
-             (w >> 16) & 0xFF,
-             (w >> 24) & 0xFF)
-            for w in readback
-        )
+        read_bytes = bytes(readback)
 
         # Print raw output (may contain padding zeros)
         print(read_bytes.rstrip(b"\x00"))
