@@ -84,3 +84,5 @@ Area is dominated by packet buffers; reducing buffer sizes saves area but increa
 
 ## Copyright
 Originally a semester project by Delphine Allimann at the Telecommunications Circuits Laboratory (TCL), EPFL, Lausanne, Switzerland. Currently maintained by Ludovic Blanc, PhD student at TCL.
+
+Under MIT license.

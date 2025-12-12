@@ -31,5 +31,7 @@ dependencies:
     - cocotb
     - pytest
     - IPython
+    - cocotbext-eth
+    - cocotbext-axi
 variables:
   X_SCLS: 1

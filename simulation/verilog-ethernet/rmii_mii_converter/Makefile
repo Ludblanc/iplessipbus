@@ -1,3 +1,11 @@
+# Copyright (c) 2025 Ludovic Damien Blanc
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 #==============================================================================
 #
 # AUTHOR: Andreas Toftegaard Kristensen, 
@@ -20,18 +28,22 @@
 #
 #==============================================================================
 
-vcom    =eda mgc vcom
-vlib    =eda mgc vlib
-vlog    =eda mgc vlog
-vopt    =eda mgc vopt
-vsim 	=eda mgc vsim 
-sdfcom  =eda mgc sdfcom
-vacom   =eda mgc vacom
-valib   =eda mgc valib
-vaspi   =eda mgc vaspi
-vasim   =eda mgc vasim
-vmap    =eda mgc vmap
-wlf2vcd	=eda mgc wlf2vcd
+command_header = 
+# epfl
+#command_header = ""
+
+vcom    =$(command_header) vcom
+vlib    =$(command_header) vlib
+vlog    =$(command_header) vlog
+vopt    =$(command_header) vopt
+vsim 	=$(command_header) vsim 
+sdfcom  =$(command_header) sdfcom
+vacom   =$(command_header) vacom
+valib   =$(command_header) valib
+vaspi   =$(command_header) vaspi
+vasim   =$(command_header) vasim
+vmap    =$(command_header) vmap
+wlf2vcd	=$(command_header) wlf2vcd
 
 #------------------------------------------------------------------------------
 # DIRECTORIES
